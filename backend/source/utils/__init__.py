@@ -29,6 +29,7 @@ def construct_db_uri(db_configuration):
         db_configuration["host"], db_configuration["port"],
         db_configuration["database"])
 
+
 # TODO Move to ENV
 db_uri = construct_db_uri(
     {

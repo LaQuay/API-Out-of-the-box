@@ -25,10 +25,15 @@ Service:
 
 ## Troubleshooting
 
-Make sure the user has permission to `run.sh` and that this file is in `LF` format. 
+
+### Make run failed
+Make sure the user has permission to run `run.sh` and that this file is in `LF` format. 
 ```bash
 docker run '...'
 standard_init_linux.go:207: exec user process caused "no such file or directory"
 Makefile:18: recipe for target 'run' failed
 make: *** [run] Error 1
 ```
+
+### Illegal option '-' in .sh
+Make sure the user has permission to run `configure-postgres.sh` and that this file is in `LF` format. 
