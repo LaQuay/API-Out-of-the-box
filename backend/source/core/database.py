@@ -5,19 +5,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from utils import construct_db_uri
+from utils import db_uri
 
 logger = logging.getLogger(__name__)
 
-db_uri = construct_db_uri(
-    {
-        "user": "postgres",
-        "password": "",
-        "host": "postgres",
-        "port": "5432",
-        "database": "api_db"
-    }
-)
 engine = create_engine(db_uri, convert_unicode=True)
 # Use autocommit because 'get_entry' was in "idle on transaction" forever
 session = scoped_session(sessionmaker(autocommit=True,

@@ -28,3 +28,14 @@ def construct_db_uri(db_configuration):
         db_configuration["user"], db_configuration["password"],
         db_configuration["host"], db_configuration["port"],
         db_configuration["database"])
+
+# TODO Move to ENV
+db_uri = construct_db_uri(
+    {
+        "user": "postgres",
+        "password": "",
+        "host": "postgres",
+        "port": "5432",
+        "database": "api_db"
+    }
+)
