@@ -16,6 +16,9 @@ services:
   # Database viewer
   pgadmin:
     image: dpage/pgadmin4:4.3
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     restart: unless-stopped
     ports:
       - "5433:80"
