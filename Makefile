@@ -12,18 +12,20 @@ clean:
 	@find . -iname "build" | xargs rm -rf 2>/dev/null || true
 
 build: clean
-	docker build -t $(DOCKER_NAME_FULL) .
+	docker build -t $(DOCKER_NAME_FULL) ./backend
 
 run: build
 	docker run -it -p 5000:5000 \
+	    --add-host postgres:$(DOCKER_LOCALHOST) \
 	    --name $(NAME) \
-	    --env-file ENV/api.env --rm $(DOCKER_NAME_FULL)
+	    --env-file backend/ENV/api.env --rm $(DOCKER_NAME_FULL)
 
 run-tests: build
 	docker run -i \
 	    -v $(DOCKER_VOLUME_REPORTS):/opt/$(NAME)/reports \
+	    --add-host mbpostgres:$(DOCKER_LOCALHOST) \
 	    --name $(NAME) \
-	    --env-file ENV/test.env --rm $(DOCKER_NAME_FULL) "/opt/$(NAME)/scripts/run_tests"
+	    --env-file backend/ENV/test.env --rm $(DOCKER_NAME_FULL) "/opt/$(NAME)/scripts/run_tests"
 
 publish: build
 	docker push $(DOCKER_NAME_FULL)

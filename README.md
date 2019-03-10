@@ -14,11 +14,21 @@ Open `localhost:5433`. The user and password are the ones that are shown in the 
 To connect to the postgres database. Click in `Add New Server` and add the following information
 in the `Connection` tab:
 
-````bash
+```bash
 Host name/address: postgres
 Port: 5432
 Maintenance database: postgres
 Username: postgres
 Role:
 Service:
-````
+```
+
+## Troubleshooting
+
+Make sure the user has permission to `run.sh` and that this file is in `LF` format. 
+```bash
+docker run '...'
+standard_init_linux.go:207: exec user process caused "no such file or directory"
+Makefile:18: recipe for target 'run' failed
+make: *** [run] Error 1
+```

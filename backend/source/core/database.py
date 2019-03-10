@@ -18,7 +18,6 @@ db_uri = construct_db_uri(
         "database": "api_db"
     }
 )
-db_user = ""
 engine = create_engine(db_uri, convert_unicode=True)
 # Use autocommit because 'get_entry' was in "idle on transaction" forever
 session = scoped_session(sessionmaker(autocommit=True,

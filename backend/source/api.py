@@ -15,7 +15,7 @@ def create_app():
     app = Flask(__name__)
     api = Api(app)
 
-    logger.info("Connecting to DB")
+    logger.info("Connecting to the DB")
 
     app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

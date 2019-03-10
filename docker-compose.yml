@@ -4,14 +4,12 @@ services:
   postgres:
     image: postgres:11.2-alpine
     volumes:
-      - /var/opt/pws/pg_data:/var/lib/postgresql/data/pgdata
+      - /var/opt/api/pg_data:/var/lib/postgresql/data/pgdata
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
     restart: unless-stopped
     ports:
       - "5432:5432"
-    networks:
-      - private
 
   # Database viewer
   pgadmin:
@@ -22,9 +20,3 @@ services:
     restart: unless-stopped
     ports:
       - "5433:80"
-    networks:
-      - private
-
-networks:
-  private:
-    driver: bridge
