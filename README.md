@@ -2,7 +2,7 @@
 
 Run your API out of the box, simple and easy. 
 
-This is a boilerplate from which you can start a full-stack project. This includes:
+This is a boilerplate from which you can start a full-stack project.
 
 ## What includes
 #### Backend
