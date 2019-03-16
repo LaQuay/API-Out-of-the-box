@@ -1,8 +1,10 @@
 # API-Out-of-the-box
+Run your API out of the box, and consume it, simple, fast and easy. 
 
-Run your API out of the box, simple and easy. 
+Have you ever wanted to perform a proof of concept in which you needed backend software and frontend software? 
+Or, have you ever seen the need to start a project but did not know where?
 
-This is a boilerplate from which you can start a full-stack project.
+In this repository you will find code and information on how to start from almost-zero a project that has a backend, frontend, and an Android application!
 
 ## What includes
 #### Backend
@@ -18,10 +20,16 @@ This is a boilerplate from which you can start a full-stack project.
 #### Frontend
 *Work in progress*
 
+#### Android application
+Based in Android API 28 and with SDK minimum of API 19. It has [Volley](https://developer.android.com/training/volley) ready to be used, to call APIs.
+
 ## Requirements
+The software is meant to be run with Docker.
 
 - [Docker](https://docs.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+
+And, for the Android App, you need an IDE (e.g. [Android Studio](https://developer.android.com/studio)) and an Android Device.
 
 ## Setup
 
@@ -50,7 +58,6 @@ Service:
 ```
 
 ## Troubleshooting
-
 
 ### Make run failed
 Make sure the user has permission to run `run.sh` and that this file is in `LF` format. 
