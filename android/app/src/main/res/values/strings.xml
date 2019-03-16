@@ -2,8 +2,12 @@
     <string name="app_name">API Out of the box</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">LaQuay</string>
+    <string name="nav_header_subtitle">hola@marcvila.me</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_share">Spread the word</string>
     <string name="action_settings">Settings</string>
+    <string name="nav_about">About the project</string>
+    <string name="share_using">Share using</string>
+    <string name="toast_function_not_implemented">Function not implemented</string>
 </resources>
