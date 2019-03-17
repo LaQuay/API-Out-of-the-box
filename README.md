@@ -18,7 +18,9 @@ In this repository you will find code and information on how to start from almos
 - pgAdmin4.3 
 
 #### Frontend
-*Work in progress*
+- Alpine
+- React 16.8
+- Node 8.15
 
 #### Android application
 Based in Android API 28 and with SDK minimum of API 19. It has [Volley](https://developer.android.com/training/volley) ready to be used, to call APIs.
@@ -34,11 +36,14 @@ And, for the Android App, you need an IDE (e.g. [Android Studio](https://develop
 ## Setup
 
 ### Run the project!
-- make build
-- make run
+Run separately.
+- `make setup`
+- `make run-backend`
+- `make run-frontend`
 
 And you will have running in:
-- PORT 5000: Flask REST API
+- PORT 3000: React - Frontend
+- PORT 5000: Flask REST API - Backend
 - PORT 5432: PostgresDB
 - PORT 5433: pgAdmin 4
 
