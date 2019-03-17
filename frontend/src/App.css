@@ -1,0 +1,16 @@
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 10px;
+}
+
+.App-content {
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+
+.nav-link {
+  color: white !important;
+}

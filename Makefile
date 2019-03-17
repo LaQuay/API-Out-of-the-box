@@ -11,24 +11,30 @@ clean:
 	@find . -iname "*.pyc" | xargs rm 2>/dev/null || true
 	@find . -iname "build" | xargs rm -rf 2>/dev/null || true
 
-build: clean
+build-frontend: clean
+	docker image build -t $(DOCKER_NAME_FULL) ./frontend
+
+build-backend: clean
 	docker build -t $(DOCKER_NAME_FULL) ./backend
 
-run: build
+run-frontend: build-frontend
+	docker run -it -p 3000:3000 -p 35729:35729 \
+	        --name $(NAME)_frontend \
+			-v $(DOCKER_VOLUME)/frontend:/app \
+			--rm $(DOCKER_NAME_FULL) start
+
+run-backend: build-backend
 	docker run -it -p 5000:5000 \
 	    --add-host postgres:$(DOCKER_LOCALHOST) \
-	    --name $(NAME) \
+	    --name $(NAME)_backend \
 	    --env-file backend/ENV/api.env --rm $(DOCKER_NAME_FULL)
 
-run-tests: build
+run-backend-tests: build-backend
 	docker run -i \
 	    -v $(DOCKER_VOLUME_REPORTS):/opt/$(NAME)/reports \
 	    --add-host mbpostgres:$(DOCKER_LOCALHOST) \
 	    --name $(NAME) \
 	    --env-file backend/ENV/test.env --rm $(DOCKER_NAME_FULL) "/opt/$(NAME)/scripts/run_tests"
-
-publish: build
-	docker push $(DOCKER_NAME_FULL)
 
 setup:
 	docker-compose -f docker-compose.yml up -d
