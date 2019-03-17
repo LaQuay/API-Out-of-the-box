@@ -1,4 +1,4 @@
-package com.laquay.apioutofthebox.controller;
+package com.laquay.apioutofthebox.controllers;
 
 import android.content.Context;
 

@@ -4,11 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainFragment extends Fragment {
+import com.laquay.apioutofthebox.controllers.APIController;
+import com.laquay.apioutofthebox.models.Entry;
+
+import java.util.ArrayList;
+
+public class MainFragment extends Fragment implements APIController.ResponseServerCallback {
     public static final String TAG = MainFragment.class.getSimpleName();
     private View rootView;
 
@@ -24,6 +30,8 @@ public class MainFragment extends Fragment {
         setUpElements();
         setUpListeners();
 
+        APIController.getInstance().getAllEntries(getContext(), this);
+
         return rootView;
     }
 
@@ -31,5 +39,12 @@ public class MainFragment extends Fragment {
     }
 
     private void setUpListeners() {
+    }
+
+    @Override
+    public void onChannelLoadServer(ArrayList<Entry> entryArrayList) {
+        for (int i = 0; i < entryArrayList.size(); ++i) {
+            Log.e(TAG, entryArrayList.get(i).toString());
+        }
     }
 }
