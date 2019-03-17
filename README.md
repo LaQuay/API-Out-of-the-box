@@ -35,6 +35,12 @@ And, for the Android App, you need an IDE (e.g. [Android Studio](https://develop
 
 ## Setup
 
+#### Backend
+Add your frontend URL in `backend/source/resources_loader.py`
+
+#### Frontend
+Add your backend URL in `frontend/src/config.js`
+
 ### Run the project!
 Run separately.
 - `make setup`
