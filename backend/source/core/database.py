@@ -62,7 +62,7 @@ def get_entry(entry_id):
     try:
         entry = session.query(Entry) \
             .filter_by(id=entry_id) \
-            .all()
+            .first()
         session.commit()
     except:
         session.rollback()

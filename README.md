@@ -43,7 +43,7 @@ And you will have running in:
 - PORT 5433: pgAdmin 4
 
 ### Connect to pgAdmin 4
-Open `localhost:5433`. The user and password are the ones that are shown in the `docker-compose.yaml`.
+Open `localhost:5433`. The user and password are the ones that are shown in the `docker-compose.yml`.
 
 To connect to the postgres database. Click in `Add New Server` and add the following information
 in the `Connection` tab:
@@ -61,6 +61,7 @@ Service:
 
 ### Make run failed
 Make sure the user has permission to run `run.sh` and that this file is in `LF` format. 
+
 ```bash
 docker run '...'
 standard_init_linux.go:207: exec user process caused "no such file or directory"

@@ -3,17 +3,22 @@ from core import database
 
 
 class ApiRepository:
-    def add_entry(self, entry):
+    @staticmethod
+    def add_entry(entry):
         return database.add_entry(entry)
 
-    def get_all_entries(self):
+    @staticmethod
+    def get_all_entries():
         return database.get_all_entries()
 
-    def get_entry(self, entry_id):
+    @staticmethod
+    def get_entry(entry_id):
         return database.get_entry(entry_id)
 
-    def update_entry(self, entry_id, entry):
+    @staticmethod
+    def update_entry(entry_id, entry):
         return database.update_entry(entry_id, entry)
 
-    def delete_entry(self, entry_id):
+    @staticmethod
+    def delete_entry(entry_id):
         return database.delete_entry(entry_id)
