@@ -23,7 +23,7 @@ WORKDIR $API_DIR
 COPY source $API_DIR/source/
 ENV PROJECT_ROOT $API_DIR/source/
 
-COPY tests $API_DIR/tests/
+# COPY tests $API_DIR/tests/
 # COPY .coveragerc $API_DIR/
 # COPY pytest.ini $API_DIR/
 COPY scripts $API_DIR/scripts/

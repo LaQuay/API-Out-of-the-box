@@ -75,9 +75,10 @@ Make sure the user has permission to run `run.sh` and that this file is in `LF` 
 
 ```bash
 docker run '...'
-standard_init_linux.go:207: exec user process caused "no such file or directory"
-Makefile:18: recipe for target 'run' failed
-make: *** [run] Error 1
+docker: Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"run.sh\": executable file not found in $PATH": unknown.
+Makefile:27: recipe for target 'run-backend' failed
+make: *** [run-backend] Error 127
+
 ```
 
 ### Illegal option '-' in .sh
