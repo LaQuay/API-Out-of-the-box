@@ -68,6 +68,31 @@ Role:
 Service:
 ```
 
+### Default API call to the backend
+
+```
+POST :5000/entries/
+Content-Type: application/json
+```
+
+```json
+{
+    "value": "sample",
+    "date": "2019-04-23 16:10:45"
+}
+```
+
+And the response will be:
+
+```json
+{
+    "data": {
+        "internal_id": 1
+    },
+    "error": null
+}
+```
+
 ## Troubleshooting
 
 ### Make run failed
