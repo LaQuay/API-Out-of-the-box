@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.laquay.apioutofthebox.controllers.APIController;
 import com.laquay.apioutofthebox.models.Entry;
@@ -17,6 +19,9 @@ import java.util.ArrayList;
 public class MainFragment extends Fragment implements APIController.ResponseServerCallback {
     public static final String TAG = MainFragment.class.getSimpleName();
     private View rootView;
+    private ListView listView;
+    private ArrayList<String> listValues;
+    private ArrayAdapter<String> listAdapter;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -30,12 +35,18 @@ public class MainFragment extends Fragment implements APIController.ResponseServ
         setUpElements();
         setUpListeners();
 
+        listValues = new ArrayList<>();
+        listAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, listValues);
+        listView.setAdapter(listAdapter);
+
         APIController.getInstance().getAllEntries(getContext(), this);
 
         return rootView;
     }
 
     private void setUpElements() {
+        listView = rootView.findViewById(R.id.entries_lv);
     }
 
     private void setUpListeners() {
@@ -44,7 +55,10 @@ public class MainFragment extends Fragment implements APIController.ResponseServ
     @Override
     public void onChannelLoadServer(ArrayList<Entry> entryArrayList) {
         for (int i = 0; i < entryArrayList.size(); ++i) {
-            Log.e(TAG, entryArrayList.get(i).toString());
+            String element = entryArrayList.get(i).toString();
+            Log.e(TAG, element);
+            listValues.add(element);
         }
+        listAdapter.notifyDataSetChanged();
     }
 }

@@ -37,10 +37,10 @@ public class APIController {
     }
 
     public void getAllEntries(final Context context, final ResponseServerCallback responseServerCallback) {
-        Log.i(TAG, "Load channels from server: " + APIUtils.ENTRY_BASE_URL);
+        Log.i(TAG, "Load channels from server: " + APIUtils.ENTRY_URL);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                APIUtils.ENTRY_BASE_URL,
+                APIUtils.ENTRY_URL,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -75,7 +75,7 @@ public class APIController {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Do something when error occurred
-                        Log.e(TAG, "Error while accessing to: " + APIUtils.ENTRY_BASE_URL);
+                        Log.e(TAG, "Error while accessing to: " + APIUtils.ENTRY_URL);
                     }
                 }
         );
