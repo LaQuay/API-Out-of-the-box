@@ -6,7 +6,7 @@ from resources.api_handlers import EntryHandler
 
 class Resources:
     def init_cors(app):
-        cors_origins = ["http://192.168.1.64:3000"]  # Add here your frontend url
+        cors_origins = ["http://localhost:3000, http://192.168.1.64:3000"]  # Add here your frontend url
         CORS(app, resources=r'/entries/*', origins=cors_origins)
         pass
 
