@@ -19,9 +19,9 @@ build-backend: clean
 
 run-frontend: build-frontend
 	docker run -it -p 3000:3000 -p 35729:35729 \
-	        --name $(NAME)_frontend \
-			-v $(DOCKER_VOLUME)/frontend:/app \
-			--rm $(DOCKER_NAME_FULL) start
+	    --name $(NAME)_frontend \
+	    -v $(DOCKER_VOLUME)/frontend:/app \
+	    --rm $(DOCKER_NAME_FULL) start
 
 run-backend: build-backend
 	docker run -it -p 5000:5000 \
@@ -32,7 +32,7 @@ run-backend: build-backend
 run-backend-tests: build-backend
 	docker run -i \
 	    -v $(DOCKER_VOLUME_REPORTS):/opt/$(NAME)/reports \
-	    --add-host mbpostgres:$(DOCKER_LOCALHOST) \
+	    --add-host postgres:$(DOCKER_LOCALHOST) \
 	    --name $(NAME) \
 	    --env-file backend/ENV/test.env --rm $(DOCKER_NAME_FULL) "/opt/$(NAME)/scripts/run_tests"
 
